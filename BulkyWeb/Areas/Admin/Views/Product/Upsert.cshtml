@@ -3,13 +3,14 @@
     <div class="card-header bg-secondary bg-gradient ml-0 py-3">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="text-primary">Add Product</h2>
+                <h2 class="text-primary">@(Model.Product.Id != 0 ? "Update" : "Create") Product</h2>
             </div>
         </div>
     </div>
     <div class="card-body p-4">
         <form method="post" class="row" enctype="multipart/form-data">
             <input asp-for="Product.Id" hidden/>
+            <input asp-for="Product.ImageUrl" hidden/>
             <div class="row">
                 <div class="col-10">
                     <div class="border p-3">
@@ -71,7 +72,16 @@
 
                         <div class="row pt-2">
                             <div class="col-6 col-md-3">
-                                <button type="submit" class="btn btn-outline-primary form-control">Create</button>
+                                @if(Model.Product.Id != 0)
+                                {
+                                    <button type="submit" class="btn btn-outline-primary form-control">Update</button>
+
+                                }
+                                else
+                                {
+                                    <button type="submit" class="btn btn-outline-primary form-control">Create</button>
+
+                                }
                             </div>
                             <div class="col-6 col-md-3">
                                 <a asp-controller="Product" asp-action="Index" class="btn btn-secondary border form-control">
@@ -84,7 +94,7 @@
                 </div>
 
                 <div class="col-2">
-                    <img src="@Model.Product.ImageUrl" style="border-radius=5px width=100%; border: 1px solid black"/>
+                    <img src="@Model.Product.ImageUrl" width="100%" style ="border-radius:5px; border:1px solid #bbb9b9" />
                 </div>
             </div>
             

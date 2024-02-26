@@ -11,8 +11,11 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
 
     public DbSet<Category> Categories { get; set; }
     public DbSet<Product> Products { get; set; }
+    public DbSet<ShoppingCart> ShoppingCarts { get; set; }
     public DbSet<ApplicationUser> ApplicationUsers { get; set; }
-
+    public DbSet<Company> Companies { get; set; }
+    public DbSet<OrderHeader> OrderHeaders { get; set; }
+    public DbSet<OrderDetail> OrderDetails { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
@@ -115,5 +118,37 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
                     ImageUrl = ""
                 }
     );
+        modelBuilder.Entity<Company>().HasData(
+            new Company
+            {
+                Id = 1,
+                Name = "Booksy",
+                City = "Skopje",
+                PhoneNumber = "1234567890",
+                PostalCode = "1000",
+                State = "Macedonia",
+                StreetAdress = "Franjo Kluz"
+            },
+            new Company
+            {
+                Id = 2,
+                Name = "Prosvetno Delo",
+                City = "Skopje",
+                PhoneNumber = "123123123",
+                PostalCode = "1000",
+                State = "Ancient Macedonia",
+                StreetAdress = "Pandil Siskov"
+            },
+            new Company
+            {
+                Id = 3,
+                Name = "Kingonin",
+                City = "Bajro",
+                PhoneNumber = "111111111",
+                PostalCode = "1000",
+                State = "Aerodrom",
+                StreetAdress = "Jane Sandanski"
+            })
+            ;
     }
 }
