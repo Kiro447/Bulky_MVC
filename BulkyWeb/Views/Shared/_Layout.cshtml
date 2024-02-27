@@ -56,6 +56,10 @@
                                         <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">Register - Admin Portal</a>
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item" asp-area="Admin" asp-controller="User" asp-action="Index">Manage User</a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
 
                                 </ul>
                             </li>
@@ -88,9 +92,12 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="https://cdn.tiny.cloud/1/0yky5xnt15e85xmjwog0j3ocwdbtbrbglpx8n909tr5ckrhl/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    @* <script src="~/lib/jquery/dist/jquery.min.js"></script> *@
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 @*     <script src="~/js/Company.js"></script>
     <script src="~/js/Order.js"></script>
     <script src="~/js/Product.js"></script> *@
+    <script src="~/js/User.js"></script>
 
 
     @await RenderSectionAsync("Scripts", required: false)
